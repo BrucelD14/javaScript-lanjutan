@@ -4,4 +4,5 @@
     "terminal.integrated.fontSize": 15,
     "workbench.colorTheme": "Noctis Azureus",
     "workbench.iconTheme": "vscode-icons",
+    "liveServer.settings.port": 5502,
 }
