@@ -1,5 +1,6 @@
 // cara membuat object pada JS
 // 1. Object Literal
+// TIDAK EFEKTIF UNTUK OBJECT YANG BANYAK
 // let mahasiswa1 = {
 //   nama: "Brucel",
 //   energi: 10,
@@ -19,44 +20,53 @@
 // };
 
 // 2. Function Declaration
-// function Mahasiswa(nama, energi) {
-//   let mahasiswa = {};
-//   mahasiswa.nama = nama;
-//   mahasiswa.energi = energi;
 
-//   mahasiswa.makan = function (porsi) {
+const methodMahasiswa = {
+  makan: function (porsi) {
+    this.energi += porsi;
+    console.log(`halo ${this.nama}, selamat maam`);
+  },
+  main: function (jam) {
+    this.energi -= jam;
+    console.log(`Halo ${this.nama}, selamat mainn`);
+  },
+
+  tidur: function(jam) {
+    this.energi += jam * 2
+    console.log(`Halo ${this.nama}, selamat tidur`);
+  }
+};
+function Mahasiswa(nama, energi) {
+  let mahasiswa = {};
+  mahasiswa.nama = nama;
+  mahasiswa.energi = energi;
+  mahasiswa.makan = methodMahasiswa.makan;
+  mahasiswa.main = methodMahasiswa.main;
+  mahasiswa.tidur = methodMahasiswa.tidur;
+
+  return mahasiswa;
+}
+
+let bucel = Mahasiswa("Brucel", 10);
+let vio = Mahasiswa("Violita", 18);
+
+// 3. Constructor Function
+// keyword new
+// function Mahasiswa(nama, energi) {
+//   this.nama = nama;
+//   this.energi = energi;
+
+//   this.makan = function (porsi) {
 //     this.energi += porsi;
 //     console.log(`halo ${this.nama}, selamat maam`);
 //   };
 
-//   mahasiswa.main = function(jam) {
+//   this.main = function (jam) {
 //     this.energi -= jam;
 //     console.log(`Halo ${this.nama}, selamat mainn`);
-//   }
-
-//   return mahasiswa;
+//   };
 // }
 
-// let bucel = Mahasiswa("Brucel", 10);
-// let vio = Mahasiswa("Violita", 18);
-
-// 3. Constructor Function
-// keyword new
-function Mahasiswa(nama, energi) {
-  this.nama = nama;
-  this.energi = energi;
-
-  this.makan = function (porsi) {
-    this.energi += porsi;
-    console.log(`halo ${this.nama}, selamat maam`);
-  };
-
-  this.main = function (jam) {
-    this.energi -= jam;
-    console.log(`Halo ${this.nama}, selamat mainn`);
-  };
-}
-
-let bucel = new Mahasiswa('Brucel', 17);
+// let bucel = new Mahasiswa('Brucel', 17);
 
 // 4. Object.create
