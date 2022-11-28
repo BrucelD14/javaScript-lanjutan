@@ -22,7 +22,11 @@ const angka = [-1, 8, 9, 1, 4, -5, -4, 3, 2, 9];
 // console.log(angka);
 // console.log(newAngka);
 
-
 // reduce
 // jumlahkan seluruh elemen pada array
-const newAngka = angka.reduce((accumulator, currentValue))
+// const newAngka = angka.reduce(
+//   (accumulator, currentValue) => accumulator + currentValue, 5
+// );
+// console.log(newAngka);
+
+
